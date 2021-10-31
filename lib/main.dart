@@ -4,7 +4,6 @@ import 'package:yorcab/Customer/Start_Trip.dart';
 import 'package:yorcab/Driver/Driver_Login.dart';
 import 'package:yorcab/Driver/Driver_SignUp.dart';
 import 'package:yorcab/WelcomeScreen.dart';
-
 import 'Login.dart';
 
 void main() {
@@ -23,8 +22,6 @@ class MyApp extends StatelessWidget {
         Login.id: (context) => Login(),
         Driver_Login.id: (context) => Driver_Login(),
         Driver_SignUp.id: (context) => Driver_SignUp(),
-        Start_Trip.id: (context) => Start_Trip(),
-        End_Trip.id: (context) => End_Trip(),
       },
     );
   }

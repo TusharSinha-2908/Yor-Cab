@@ -28,7 +28,7 @@ class RoundedButton extends StatelessWidget {
               fontFamily: 'Tushar',
               fontWeight: FontWeight.bold,
               color: textColor,
-              fontSize: 15
+              fontSize: 12
             ),
           ),
         ),

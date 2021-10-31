@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "425162605888",
+    "firebase_url": "https://yor-cab-default-rtdb.firebaseio.com",
+    "project_id": "yor-cab",
+    "storage_bucket": "yor-cab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425162605888:android:fc7a578686ef80240c26a5",
+        "android_client_info": {
+          "package_name": "com.TusharSinha.rider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425162605888-fs3t0atg73t4qnf3i9o0bisp27rg8sof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxhGMDK7o-5loHs42u_8HrtLwiyVmLu0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425162605888-fs3t0atg73t4qnf3i9o0bisp27rg8sof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425162605888:android:7dd2ed3e4b1799ae0c26a5",
+        "android_client_info": {
+          "package_name": "com.TusharSinha.yorcab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425162605888-fs3t0atg73t4qnf3i9o0bisp27rg8sof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxhGMDK7o-5loHs42u_8HrtLwiyVmLu0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425162605888-fs3t0atg73t4qnf3i9o0bisp27rg8sof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

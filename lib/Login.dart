@@ -1,3 +1,4 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:yorcab/Constants.dart';
@@ -16,6 +17,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  late ScanResult startTrip;
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +58,10 @@ class _LoginState extends State<Login> {
                           Expanded(
                             flex: 2,
                             child: Text(
-                              "Yor Cab    ",
+                              "Yor Cab  ",
                               style: TextStyle(
                                   fontFamily: 'Tushar',
-                                  fontSize: 45,
+                                  fontSize: 34,
                                   color: Colors.black,
                                   fontWeight: FontWeight.w900
                               ),
@@ -66,10 +69,10 @@ class _LoginState extends State<Login> {
                           ),
                           Expanded(
                             child: Text(
-                                "- A Taxi for Everyone",
+                                " - A Taxi for Everyone",
                                  style: TextStyle(
                                    fontFamily: 'Tushar',
-                                   fontSize: 16,
+                                   fontSize: 12,
                                    fontWeight: FontWeight.bold
                                  ),
                             ),
@@ -81,7 +84,7 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 50),
             Padding(
               padding: const EdgeInsets.only(left: 35.0),
               child: Text(
@@ -89,11 +92,11 @@ class _LoginState extends State<Login> {
                 style: TextStyle(
                   color: Colors.black,
                   fontFamily: 'Tushar',
-                  fontSize: 32,
+                  fontSize: 30,
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 15),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -111,7 +114,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           color: LogoColor,
                           fontFamily: 'Tushar',
-                          fontSize: 25,
+                          fontSize: 20,
                         ),
                       ),
                     ),
@@ -148,7 +151,7 @@ class _LoginState extends State<Login> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 40),
                     Expanded(
                         child: Container(
                           decoration: BoxDecoration(
@@ -166,7 +169,7 @@ class _LoginState extends State<Login> {
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontFamily: 'Tushar',
-                                    fontSize: 25,
+                                    fontSize: 20,
                                   ),
                                 ),
                               ),
@@ -183,8 +186,14 @@ class _LoginState extends State<Login> {
                                           text: 'Start Trip',
                                           color: Colors.black,
                                           textColor: LogoColor,
-                                          onPress: (){
-                                            Navigator.pushNamed(context, Start_Trip.id);
+                                          onPress: () async{
+                                            ScanResult code = await BarcodeScanner.scan();
+                                            setState(() {
+                                              startTrip = code;
+                                            });
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context)=> Start_Trip(startTrip)));
                                           },
                                       ),
                                     ),
@@ -203,14 +212,15 @@ class _LoginState extends State<Login> {
                                   ],
                                 ),
                               ),
-                              SizedBox(height: 30),
+                              SizedBox(height: 40),
                               Expanded(
                                 child: Container(
                                   color: Colors.black,
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      SizedBox(height: 5),
+                                      SizedBox(height: 10),
                                       Text(
                                         "~ Made With ♥    ",
                                         style: TextStyle(
@@ -218,6 +228,7 @@ class _LoginState extends State<Login> {
                                           fontFamily: 'Tushar',
                                           fontStyle: FontStyle.italic,
                                           fontWeight: FontWeight.w100,
+                                          fontSize: 10,
                                           letterSpacing: 2
                                         ),
                                       ),
