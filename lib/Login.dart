@@ -22,10 +22,10 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: LogoColor,
-      body: SafeArea(
-        child: Column(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: LogoColor,
+        body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -84,15 +84,18 @@ class _LoginState extends State<Login> {
                 ],
               ),
             ),
-            SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0),
-              child: Text(
-                'Welcome Back!',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontFamily: 'Tushar',
-                  fontSize: 30,
+            SizedBox(height: 40),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 35.0),
+                child: Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Tushar',
+                    fontSize: 25,
+                  ),
                 ),
               ),
             ),
@@ -131,6 +134,7 @@ class _LoginState extends State<Login> {
                                   text: 'Sign Up',
                                   color: LogoColor,
                                   textColor: Colors.black,
+                                  fontSize: 11,
                                   onPress: (){
                                     Navigator.pushNamed(context, Driver_SignUp.id);
                                   },
@@ -143,6 +147,7 @@ class _LoginState extends State<Login> {
                                 text: 'Login',
                                 color: LogoColor,
                                 textColor: Colors.black,
+                                fontSize: 11,
                                 onPress: (){
                                   Navigator.pushNamed(context, Driver_Login.id);
                                 },
@@ -160,6 +165,7 @@ class _LoginState extends State<Login> {
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(height: 30),
                               Padding(
@@ -186,6 +192,7 @@ class _LoginState extends State<Login> {
                                           text: 'Start Trip',
                                           color: Colors.black,
                                           textColor: LogoColor,
+                                          fontSize: 11,
                                           onPress: () async{
                                             ScanResult code = await BarcodeScanner.scan();
                                             setState(() {
@@ -204,6 +211,7 @@ class _LoginState extends State<Login> {
                                           text: 'End Trip',
                                           color: Colors.black,
                                           textColor: LogoColor,
+                                          fontSize: 11,
                                           onPress: (){
                                             Navigator.pushNamed(context, End_Trip.id);
                                           },
@@ -214,22 +222,25 @@ class _LoginState extends State<Login> {
                               ),
                               SizedBox(height: 40),
                               Expanded(
+                                flex: 1,
                                 child: Container(
                                   color: Colors.black,
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      SizedBox(height: 10),
-                                      Text(
-                                        "~ Made With ♥    ",
-                                        style: TextStyle(
-                                          color: LogoColor,
-                                          fontFamily: 'Tushar',
-                                          fontStyle: FontStyle.italic,
-                                          fontWeight: FontWeight.w100,
-                                          fontSize: 10,
-                                          letterSpacing: 2
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          "~ Made With ♥   ",
+                                          style: TextStyle(
+                                            color: LogoColor,
+                                            fontFamily: 'Tushar',
+                                            fontStyle: FontStyle.italic,
+                                            fontWeight: FontWeight.w100,
+                                            fontSize: 8,
+                                            letterSpacing: 2
+                                          ),
                                         ),
                                       ),
                                     ],

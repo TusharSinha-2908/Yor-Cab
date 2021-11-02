@@ -76,7 +76,7 @@ showAlertDialog(BuildContext context) {
         style: TextStyle(fontFamily: 'Tushar'),
     ),
     content: Text(
-        "Enter the details properly!",
+        "Enter the details properly.",
         style: TextStyle(fontFamily: 'Tushar'),
     ),
     actions: [
@@ -111,7 +111,7 @@ showAlertDialogAge(BuildContext context) {
       style: TextStyle(fontFamily: 'Tushar'),
     ),
     content: Text(
-      "Age Must Be Greater Than 17 Yrs.",
+      "Age must be greater than 17 Yrs.",
       style: TextStyle(fontFamily: 'Tushar'),
     ),
     actions: [
@@ -146,7 +146,77 @@ showAlertDialogPhone(BuildContext context) {
       style: TextStyle(fontFamily: 'Tushar'),
     ),
     content: Text(
-      "Phone Number Must Be Of 10 Digits.",
+      "Phone number must be of 10 digits.",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialogLogin(BuildContext context) {
+
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text(
+      "OK",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    onPressed: () => Navigator.pop(context),
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "Yor Cab",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    content: Text(
+      "Wrong credentials or User does\'nt exist.",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialogPassword(BuildContext context) {
+
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text(
+      "OK",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    onPressed: () => Navigator.pop(context),
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "Yor Cab",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    content: Text(
+      "Password must be of atleast 6 characters.",
       style: TextStyle(fontFamily: 'Tushar'),
     ),
     actions: [
