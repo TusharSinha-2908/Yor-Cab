@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:yorcab/Customer/End_Trip.dart';
 import 'package:yorcab/Driver/Driver_Login.dart';
 import 'package:yorcab/Driver/Driver_QR.dart';
 import 'package:yorcab/Driver/Driver_SignUp.dart';
@@ -28,7 +27,6 @@ class MyApp extends StatelessWidget{
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         Login.id: (context) => Login(),
-        End_Trip.id: (context) => End_Trip(),
         Driver_Login.id: (context) => Driver_Login(),
         Driver_SignUp.id: (context) => Driver_SignUp(),
         Driver_QR.id : (context) => Driver_QR(),

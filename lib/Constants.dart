@@ -73,11 +73,11 @@ showAlertDialog(BuildContext context) {
   AlertDialog alert = AlertDialog(
     title: Text(
         "Yor Cab",
-        style: TextStyle(fontFamily: 'Tushar'),
+        style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
     ),
     content: Text(
         "Enter the details properly.",
-        style: TextStyle(fontFamily: 'Tushar'),
+        style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
     ),
     actions: [
       okButton,
@@ -108,11 +108,11 @@ showAlertDialogAge(BuildContext context) {
   AlertDialog alert = AlertDialog(
     title: Text(
       "Yor Cab",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
     ),
     content: Text(
       "Age must be greater than 17 Yrs.",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
     ),
     actions: [
       okButton,
@@ -143,11 +143,11 @@ showAlertDialogPhone(BuildContext context) {
   AlertDialog alert = AlertDialog(
     title: Text(
       "Yor Cab",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
     ),
     content: Text(
       "Phone number must be of 10 digits.",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
     ),
     actions: [
       okButton,
@@ -178,11 +178,11 @@ showAlertDialogLogin(BuildContext context) {
   AlertDialog alert = AlertDialog(
     title: Text(
       "Yor Cab",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
     ),
     content: Text(
       "Wrong credentials or User does\'nt exist.",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
     ),
     actions: [
       okButton,
@@ -213,11 +213,46 @@ showAlertDialogPassword(BuildContext context) {
   AlertDialog alert = AlertDialog(
     title: Text(
       "Yor Cab",
-      style: TextStyle(fontFamily: 'Tushar'),
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
     ),
     content: Text(
       "Password must be of atleast 6 characters.",
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialogQR(BuildContext context) {
+
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text(
+      "OK",
       style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    onPressed: () => Navigator.pop(context),
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "Yor Cab",
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
+    ),
+    content: Text(
+      "No data captured!\nPlease ask the driver for the QR code.",
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
     ),
     actions: [
       okButton,
