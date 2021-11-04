@@ -65,7 +65,7 @@ class _Driver_QRState extends State<Driver_QR> {
            String email = info['E-Mail'].toString();
 
            String data = name + " " + age + " " + gender + " " +
-                         phone + " " + dl + " " + email + "YorCab";
+                         phone + " " + dl + " " + email + " YorCab";
 
            setState(() {
              userData = data;

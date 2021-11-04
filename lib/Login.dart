@@ -112,17 +112,19 @@ class _LoginState extends State<Login> {
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(25),topRight: Radius.circular(25)),
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       SizedBox(height: 30),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 35.0),
-                        child: Text(
-                          'Driver\'s Area',
-                          style: TextStyle(
-                            color: LogoColor,
-                            fontFamily: 'Tushar',
-                            fontSize: 20,
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 35.0),
+                          child: Text(
+                            'Driver\'s Area',
+                            style: TextStyle(
+                              color: LogoColor,
+                              fontFamily: 'Tushar',
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                       ),
@@ -170,7 +172,7 @@ class _LoginState extends State<Login> {
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 SizedBox(height: 30),
                                 Padding(
@@ -269,35 +271,29 @@ class _LoginState extends State<Login> {
                                   ),
                                 ),
                                 SizedBox(height: 40),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    color: Colors.black,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.end,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 10),
-                                          child: Text(
-                                            "~ Made With ♥   ",
-                                            style: TextStyle(
-                                              color: LogoColor,
-                                              fontFamily: 'Tushar',
-                                              fontStyle: FontStyle.italic,
-                                              fontWeight: FontWeight.w100,
-                                              fontSize: 8,
-                                              letterSpacing: 2
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
                           )
+                      ),
+                      Container(
+                        color: Colors.black,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Text(
+                              "~ Made With ♥   ",
+                              style: TextStyle(
+                                  color: LogoColor,
+                                  fontFamily: 'Tushar',
+                                  fontStyle: FontStyle.italic,
+                                  fontWeight: FontWeight.w100,
+                                  fontSize: 8,
+                                  letterSpacing: 2
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
