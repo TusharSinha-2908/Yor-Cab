@@ -9,7 +9,7 @@ class Start_Trip extends StatefulWidget {
   static const String id = "Start Trip Screen";
   final ScanResult scanResult;
 
-  const Start_Trip(@required this.scanResult);
+  const Start_Trip({required this.scanResult});
 
   @override
   _Start_TripState createState() => _Start_TripState();
@@ -22,9 +22,8 @@ class _Start_TripState extends State<Start_Trip> {
   Map<String,Timestamp> Journey = {};
   Map<String,String> journeyInfo = {};
   late Timestamp startTimeStamp, endTimeStamp;
-  DateTime startDate = DateTime.now();
-  late DateTime endDate;
-  late String currentDate,startTime,endTime,duration;
+  late DateTime startDate, endDate;
+  late String startJourneyDate,endJourneyDate,startTime,endTime,duration;
   late String name,age,gender,phone,dl,email;
   bool spinner = true;
 
@@ -39,31 +38,28 @@ class _Start_TripState extends State<Start_Trip> {
     super.initState();
   }
 
-  void getDriverInfo()
-  {
+  void getDriverInfo() {
     driverInfo = widget.scanResult.rawContent.split(" ");
-    if(driverInfo.length == 6) {
-      name = driverInfo[0];
-      age = driverInfo[1];
-      gender = driverInfo[2];
-      phone = driverInfo[3];
-      dl = driverInfo[4];
-      email = driverInfo[5];
-    }
-    else{
-      name = driverInfo[0] + " " + driverInfo[1];
-      age = driverInfo[2];
-      gender = driverInfo[3];
-      phone = driverInfo[4];
-      dl = driverInfo[5];
-      email = driverInfo[6];
+    int length = driverInfo.length;
+
+    email = driverInfo[length-2];
+    dl = driverInfo[length-3];
+    phone = driverInfo[length-4];
+    gender = driverInfo[length-5];
+    age = driverInfo[length-6];
+    name = "";
+
+    for(int i = 0; i < length-6; i++)
+    {
+      name += driverInfo[i] + " ";
     }
   }
 
   void getTime()
   {
+      startDate = DateTime.now();
       startTime = startDate.toLocal().toString().split(" ")[1].split(".")[0];
-      currentDate = startDate.toLocal().toString().split(" ")[0];
+      startJourneyDate = startDate.toLocal().toString().split(" ")[0];
       startTimeStamp = Timestamp.now();
   }
 
@@ -71,6 +67,7 @@ class _Start_TripState extends State<Start_Trip> {
   {
     endTimeStamp = Timestamp.now();
     endDate = DateTime.now();
+    endJourneyDate = endDate.toLocal().toString().split(" ")[0];
 
     endTime = endDate.toLocal().toString().split(" ")[1].split(".")[0];
 
@@ -83,14 +80,14 @@ class _Start_TripState extends State<Start_Trip> {
 
     duration = endDate.difference(startDate).toString().split(".")[0];
 
-    _firestore.collection("Work Time").doc(name).collection("/Trips").doc(currentDate + " " + startTime).set(
+    _firestore.collection("Work Time").doc(name + " " + email).collection("/Trips").doc(startJourneyDate + " " + startTime).set(
         {
           'Journey' : Journey,
           'Duration' : duration,
         });
 
-    journeyInfo['start'] = startTime;
-    journeyInfo['end'] = endTime;
+    journeyInfo['start'] = startJourneyDate + " " + startTime;
+    journeyInfo['end'] = endJourneyDate + " " + endTime;
     journeyInfo['duration'] = duration;
 
     Navigator.pop(context);
@@ -219,7 +216,7 @@ class _Start_TripState extends State<Start_Trip> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Start Date : $currentDate",
+                    "Start Date : $startJourneyDate",
                     style: TextStyle(
                         fontFamily: 'Tushar',
                         fontSize: 12

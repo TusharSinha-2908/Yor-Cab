@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:yorcab/Constants.dart';
-import 'package:yorcab/Customer/End_Trip.dart';
+import 'package:yorcab/Customer/Driver_Details.dart';
 import 'package:yorcab/Customer/Start_Trip.dart';
 import 'package:yorcab/Driver/Driver_Login.dart';
 import 'package:yorcab/Driver/Driver_SignUp.dart';
@@ -209,6 +209,10 @@ class _LoginState extends State<Login> {
                                               if(code.rawContent.isEmpty){
                                                 showAlertDialogQR(context);
                                               }
+                                              else if(code.rawContent.toString().contains("YorCab") == false)
+                                              {
+                                                showAlertDialogWrongQR(context);
+                                              }
                                               else {
                                                 setState(() {
                                                   startTrip = code;
@@ -216,7 +220,7 @@ class _LoginState extends State<Login> {
 
                                                 Navigator.push(
                                                     context,
-                                                    MaterialPageRoute(builder: (context)=> Start_Trip(startTrip)));
+                                                    MaterialPageRoute(builder: (context)=> Start_Trip(scanResult: startTrip)));
                                               }
 
                                               setState(() {
@@ -229,7 +233,7 @@ class _LoginState extends State<Login> {
                                       Expanded(
                                         flex: 1,
                                         child: RoundedButton(
-                                            text: 'End Trip',
+                                            text: 'Driver Details',
                                             color: Colors.black,
                                             textColor: LogoColor,
                                             fontSize: 11,
@@ -244,12 +248,16 @@ class _LoginState extends State<Login> {
                                               if(code.rawContent.isEmpty){
                                                 showAlertDialogQR(context);
                                               }
+                                              else if(code.rawContent.toString().contains("YorCab") == false)
+                                              {
+                                                showAlertDialogWrongQR(context);
+                                              }
                                               else {
                                                   setState(() {
                                                     endTrip = code;
                                                   });
 
-                                                 // Navigator.push(context, MaterialPageRoute(builder: (context)=> End_Trip(scanResult: endTrip)));
+                                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> Driver_Details(scanResult: endTrip)));
                                                 }
 
                                               setState(() { spinner = false; });

@@ -267,3 +267,38 @@ showAlertDialogQR(BuildContext context) {
     },
   );
 }
+
+showAlertDialogWrongQR(BuildContext context) {
+
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text(
+      "OK",
+      style: TextStyle(fontFamily: 'Tushar'),
+    ),
+    onPressed: () => Navigator.pop(context),
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      "Yor Cab",
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 15),
+    ),
+    content: Text(
+      "Invalid QR Code!",
+      style: TextStyle(fontFamily: 'Tushar',fontSize: 12),
+    ),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
